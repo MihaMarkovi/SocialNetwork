@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>SocialNetwork | Main page</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <script src="/assets/js/emoteicons.js"></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<div class="container">
+    {%if logiran %}
+    <h1 style="font-family:Impact">Živijo, {{user.nickname()}}</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <form action="" method="post">
+                <div id="emoticons">
+                    &nbsp &nbsp
+                    <label for="smart">Emotes:</label>
+                    <img width=100px" onclick="insertSmiley('SmartNinja')" alt="SmartNinja" class='emote-small'
+                         src='/assets/emotes/ninja.gif' id="smart">
+                </div>
+                <label for="emote">Vpiši besedilo</label><br>
+                <input name="vnos" id="emote">
+                <br><br>
+                <button type="submit" class="btn btn-default">OK</button>
+                <br>
+                <br>
+                <button class="btn btn-default"><a href="{{logout_url}}">Logout</a></button>
+                <br>
+                <br>
+            </form>
+
+        </div>
+        <p>hello</p>
+        <div class="col-md-6">
+            {%for sporocilo in seznam%}
+            <div class="row" style="background-color:white; border-style:none ; width: 600px; border-radius: 25px;">
+                <div class="col-sm-3 " style="background-color:#5DE850; border-radius: 25px; margin-top:0px;">
+                    <div class="" style="display: table;">
+                        <div class="v-center">
+                            <div class="outer">
+                                <div class="middle">
+                                    <div class="inner">
+                                        {{sporocilo.poslal}}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="hideOverflow" style="margin-top:10px;"><strong> {{ sporocilo.vnos|safe }}</strong></div>
+                </div>
+                <div class="col-sm-3" style="background-color:red; border-radius: 25px;">
+                    {{ sporocilo.datum }}
+                </div>
+            </div>
+
+
+            <br>{%endfor%}
+        </div>
+    </div>
+
+    {%else%}
+    <h1>Please login first</h1>
+    <button class="btn btn-default"><a href="{{login_url}}">login</a></button>
+    {%endif%}
+</body>
+</html>
