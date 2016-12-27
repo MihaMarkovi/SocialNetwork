@@ -52,10 +52,11 @@ class MainHandler(BaseHandler):
         return self.render_template("hello.html", params=params)
 
     def post(self):
+        slovar = {"KuraC": '<img class="emote-small" style="width:50px; height:50px" src="assets/emotes/kurac.gif">'}
         user = users.get_current_user()
         rezultat = self.request.get("vnos")
         besedilo = str(jinja2.escape(rezultat))
-        objava = besedilo.replace("SmartNinja", '<img style="width:100px; height:100px" src="assets/emotes/ninja.gif">');("lolek", "bolek")
+        objava = besedilo.replace("KuraC", slovar["KuraC"])
         posiljatelj = user.nickname()
         sporocilo = Sporocilo(vnos=objava, poslal=posiljatelj)
         sporocilo.put()

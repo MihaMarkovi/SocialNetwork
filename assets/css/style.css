@@ -42,3 +42,9 @@ body {
     margin-right: auto;
     width: /*whatever width you want*/;
 }
+
+#podatki {
+    background-color:blue;
+    width:600px;
+    border-radius: 25px;
+}
