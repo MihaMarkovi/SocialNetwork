@@ -1,6 +1,9 @@
 body {
+    /*barva celega html-ja*/
     background-color: lightblue;
 
+
+/*to pusti pri miru*/
 }
 .hideOverflow
 {
@@ -40,11 +43,10 @@ body {
 .inner {
     margin-left: auto;
     margin-right: auto;
-    width: /*whatever width you want*/;
 }
 
 #podatki {
-    background-color:blue;
+    /*tukaj spreminjaš barvo uporabnikovih podatkov ko pošlje sporočilo*/
+    background-color: #1BA2D7;
     width:600px;
-    border-radius: 25px;
 }
