@@ -62,9 +62,9 @@
 
         <div class="col-md-6">
             {%for sporocilo in seznam%}
-
+            <!--tukaj spreminjaj samo background-color: to je barva uporabnikovega sporocila-->
             <div class="row" style="background-color:white; border-style:none ; width: 600px; border-radius: 25px;">
-                <div class="panel panel-primary;" style="background-color:#1BA2D7; width: 600px">
+                <div id="podatki" class="panel panel-primary;">
                     <div style="text-align:left;">{{sporocilo.poslal}}</div>
                     <div style="text-align:right; margin-top: -20px">Napisano ob {{ sporocilo.datum.hour + 1}}:{{sporocilo.datum.minute}},
                         dne {{sporocilo.datum.day}}.{{sporocilo.datum.month}}.{{sporocilo.datum.year}}
@@ -85,5 +85,6 @@
     <h1>Please login first</h1>
     <button class="btn btn-default"><a href="{{login_url}}">login</a></button>
     {%endif%}
+    <p>Avtor: Miha Markovič</p>
 </body>
 </html>
