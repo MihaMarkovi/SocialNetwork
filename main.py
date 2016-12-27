@@ -49,7 +49,7 @@ class MainHandler(BaseHandler):
 
             params={"login_url": login_url, "logiran": logiran}
         params["seznam"] = seznam
-        return self.render_template("hello.html", params=params)
+        return self.render_template("index.html", params=params)
 
     def post(self):
         slovar = {"SmeskO": '<img class="emote-small" style="width:50px; height:50px" src="assets/emotes/smesko.gif">'}
