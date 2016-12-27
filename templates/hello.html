@@ -2,6 +2,9 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+
+    <link rel="icon" type="image/x-icon" href="assets/ovnik.ico">
+
     <title>SocialNetwork | Main page</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -31,9 +34,9 @@
             <form action="" method="post">
                 <div id="emoticons" style="margin-left: -15px">
                     &nbsp &nbsp
-                    <label for="kurac">Emote:</label>
-                    <img width=50px" onclick="insertSmiley('KuraC')" alt="KuraC" class='emote-small'
-                         src='/assets/emotes/kurac.gif' id="kurac">
+                    <label for="smesko">Emote:</label>
+                    <img width=50px" onclick="insertSmiley('SmeskO')" alt="SmeskO" class='emote-small'
+                         src='/assets/emotes/smesko.gif' id="smesko">
                 </div>
                 <br>
                 <label for="emote">Vpiši besedilo</label><br>
@@ -55,6 +58,10 @@
                     </ul>
                     <br>
                     <br>
+                    <br>
+                    <br>
+                    <p>Avtor: Miha Markovič</p>
+                    <br>
                 </div>
             </form>
 
@@ -66,7 +73,8 @@
             <div class="row" style="background-color:white; border-style:none ; width: 600px; border-radius: 25px;">
                 <div id="podatki" class="panel panel-primary;">
                     <div style="text-align:left;">{{sporocilo.poslal}}</div>
-                    <div style="text-align:right; margin-top: -20px">Napisano ob {{ sporocilo.datum.hour + 1}}:{{sporocilo.datum.minute}},
+                    <div style="text-align:right; margin-top: -20px">Napisano ob {{ sporocilo.datum.hour +
+                        1}}:{{sporocilo.datum.minute}},
                         dne {{sporocilo.datum.day}}.{{sporocilo.datum.month}}.{{sporocilo.datum.year}}
                     </div>
                 </div>
@@ -78,13 +86,26 @@
             </div>
             <br>
             {%endfor%}
+
         </div>
     </div>
 
     {%else%}
-    <h1>Please login first</h1>
-    <button class="btn btn-default"><a href="{{login_url}}">login</a></button>
+    <div style="text-align:center">
+        <div class="jumbotron">
+            <img style="width:256px; hight:256px;" src="assets/ovnik.png">
+            <h1 style="font-family: georgia">Ovnik's Community</h1>
+            <br>
+            <br>
+            <p>Login with Google</p>
+            <br>
+            <button style="width:100px; height: 50px" class="btn btn-success"><a href="{{login_url}}"
+                                                                                 style="color: white;">Login</a>
+            </button>
+        </div>
+
+    </div>
+    <p style="text-align: right">Avtor: Miha Markovič</p>
     {%endif%}
-    <p>Avtor: Miha Markovič</p>
 </body>
 </html>
